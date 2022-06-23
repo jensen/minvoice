@@ -1,0 +1,8 @@
+.logo {
+  font-weight: 700;
+  font-size: 2rem;
+
+  & > svg {
+    fill: var(--primary-highlight);
+  }
+}

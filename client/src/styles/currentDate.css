@@ -1,0 +1,5 @@
+.current-date__label {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-highlight);
+}

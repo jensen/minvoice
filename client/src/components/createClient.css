@@ -1,0 +1,7 @@
+.create-client__container {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: 4fr 1fr;
+  align-items: end;
+  margin-bottom: 1rem;
+}

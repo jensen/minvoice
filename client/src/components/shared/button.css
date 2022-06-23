@@ -1,0 +1,57 @@
+.button {
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+
+  & svg {
+    margin-right: 1rem;
+  }
+}
+
+.button__group {
+  display: flex;
+}
+
+.button--primary {
+  background-color: var(--primary-highlight);
+  color: var(--color-white);
+
+  & svg {
+    fill: var(--color-white);
+  }
+
+  &:hover {
+    background-color: var(--primary-highlight--darker);
+  }
+}
+
+.button--secondary {
+  border: 1px solid var(--primary-highlight);
+  color: var(--primary-highlight);
+
+  & svg {
+    fill: var(--primary-highlight);
+  }
+
+  &:hover {
+    border-color: var(--primary-highlight--lighter);
+    background-color: var(--primary-highlight--lighter);
+    color: var(--color-white);
+  }
+}
+
+.button--danger {
+  border: 1px solid var(--danger);
+  color: var(--danger);
+
+  & svg {
+    fill: var(--danger);
+  }
+
+  &:hover {
+    border-color: var(--danger--lighter);
+    background-color: var(--danger--lighter);
+    color: var(--color-white);
+  }
+}

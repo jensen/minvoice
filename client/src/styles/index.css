@@ -1,0 +1,37 @@
+@import url("./reset.css");
+@import url("./variables.css");
+@import url("./animation.css");
+@import url("./layout.css");
+@import url("./notifications.css");
+@import url("./currentDate.css");
+@import url("./form.css");
+@import url("./pages.css");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+a {
+  color: var(--primary-highlight);
+
+  &:hover {
+    color: var(--primary-highlight--darker);
+  }
+}

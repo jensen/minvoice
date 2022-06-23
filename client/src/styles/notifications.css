@@ -1,0 +1,34 @@
+.notifications__container {
+  position: absolute;
+  width: 100%;
+  bottom: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.notifications__list {
+}
+
+.notifications__item {
+  border-radius: 0.25rem;
+  padding: 0.5rem 2rem;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+
+  animation: fadein linear 0.5s 0s;
+  animation-fill-mode: forwards;
+
+  color: var(--color-white);
+}
+
+.notifications__item--info {
+  background-color: var(--color-indigo--400);
+}
+
+.notifications__item--warning {
+  background-color: var(--color-orange--400);
+}
+
+.notifications__item--error {
+  background-color: var(--color-red--400);
+}

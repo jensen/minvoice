@@ -1,0 +1,16 @@
+.loading__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  opacity: 0;
+
+  animation: fadein linear 0.3s 0.2s;
+  animation-fill-mode: forwards;
+
+  & svg {
+    stroke: var(--primary-highlight);
+    transform: scale(300%);
+  }
+}

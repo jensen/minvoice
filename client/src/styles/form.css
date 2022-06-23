@@ -1,0 +1,21 @@
+.input {
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-gray--200);
+  padding: 0.5rem;
+  width: 100%;
+
+  &:focus-visible {
+    outline-color: var(--primary-highlight);
+  }
+}
+
+.label__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label__content {
+  margin-bottom: 0.25rem;
+  color: var(--color-gray--500);
+  font-size: 0.825rem;
+}
