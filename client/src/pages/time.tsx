@@ -1,10 +1,10 @@
 import { useNavigate, Outlet } from "react-router-dom";
+import useRouterDate from "../hooks/useRouterDate";
 import Card from "../components/shared/Card";
 import { Plus } from "../components/shared/Icons";
 import Button from "../components/shared/Button";
-import DaySelector from "../components/DaySelector";
-import EntryList from "../components/EntryList";
-import useRouterDate from "../hooks/useRouterDate";
+import DaySelectorQuery from "../queries/DaySelectorQuery";
+import EntryListQuery from "../queries/EntryListQuery";
 
 interface ICurrentDateProps {
   day: number;
@@ -33,7 +33,7 @@ export default function Time() {
         <CurrentDate year={year} month={month} day={day} />
       </Card>
       <Card>
-        <DaySelector
+        <DaySelectorQuery
           onPrevious={handlePrevious}
           onNext={handleNext}
           onSelect={handleSelect}
@@ -49,7 +49,7 @@ export default function Time() {
             New Entry
           </Button>
         </div>
-        <EntryList year={year} month={month} day={day} />
+        <EntryListQuery year={year} month={month} day={day} />
       </Card>
       <Outlet />
     </main>

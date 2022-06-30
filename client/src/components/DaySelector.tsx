@@ -1,3 +1,4 @@
+import { Entry } from "../types.server";
 import { useEffect } from "react";
 import cx from "classnames";
 import { ArrowLeft, ArrowRight } from "./shared/Icons";
@@ -8,7 +9,6 @@ import {
   isSameDay,
   formatSeconds,
 } from "../utils/date";
-import { useEntries } from "../hooks/useSelector";
 
 import "./daySelector.css";
 
@@ -36,18 +36,17 @@ const DayItem = (props: IDayItemProps) => {
   );
 };
 
-interface IDaySelectorProps {
+export interface IDaySelectorProps {
   day: number;
   month: number;
   year: number;
+  entries: Entry[];
   onPrevious: () => void;
   onNext: () => void;
   onSelect: (year: number, month: number, day: number) => void;
 }
 
 export default function DaySelector(props: IDaySelectorProps) {
-  const entries = useEntries();
-
   const { day, month, year } = props;
 
   const current = new Date(year, month - 1, day);
@@ -86,7 +85,7 @@ export default function DaySelector(props: IDaySelectorProps) {
             year={day.getFullYear()}
             month={day.getMonth() + 1}
             day={day.getDate()}
-            duration={entries
+            duration={props.entries
               .filter((entry) => isSameDay(new Date(entry.date), day))
               .reduce((seconds, entry) => seconds + entry.seconds, 0)}
             isSelected={day.getDate() === current.getDate()}

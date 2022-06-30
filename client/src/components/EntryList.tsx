@@ -1,6 +1,6 @@
 import type { Entry, Project, Client } from "src/types.server";
 import { Link } from "react-router-dom";
-import { useEntries } from "../hooks/useSelector";
+
 import { formatSeconds } from "../utils/date";
 
 import "./entryList.css";
@@ -13,7 +13,7 @@ interface EntryWithProject extends Entry {
   project: ProjectWithClient;
 }
 
-const EmptryEntries = () => (
+export const EmptyEntries = () => (
   <div className="entry-list__container">
     <div className="entry-list__empty">
       There are no entries for this day.
@@ -50,27 +50,13 @@ const EntryItem = (props: IEntryItemProps) => (
 );
 
 interface IEntryListProps {
-  year: number;
-  month: number;
-  day: number;
+  entries: EntryWithProject[];
 }
 
 export default function EntryList(props: IEntryListProps) {
-  const entries = useEntries({
-    filter: {
-      year: props.year,
-      month: props.month,
-      day: props.day,
-    },
-  });
-
-  if (entries.length === 0) {
-    return <EmptryEntries />;
-  }
-
   return (
     <ul className="entry-list__container">
-      {entries.map((entry) => (
+      {props.entries.map((entry) => (
         <EntryItem key={entry.id} entry={entry} />
       ))}
     </ul>

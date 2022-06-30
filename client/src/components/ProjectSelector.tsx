@@ -39,7 +39,7 @@ interface IProjectSelectorProps {
   onChange: (id: number) => void;
 }
 
-export default function ProjectSeletor(props: IProjectSelectorProps) {
+export default function ProjectSelector(props: IProjectSelectorProps) {
   const clients = useClients();
 
   const [open, setOpen] = useState(false);
