@@ -33,7 +33,7 @@ export const handlers = [
     )
   ),
   rest.post("/api/entries", (request, response, context) => {
-    if (!request.body) {
+    if (request.body === undefined) {
       return;
     }
 
@@ -63,7 +63,7 @@ export const handlers = [
     )
   ),
   rest.post("/api/projects", (request, response, context) => {
-    if (!request.body) {
+    if (request.body === undefined) {
       return;
     }
 
@@ -88,7 +88,7 @@ export const handlers = [
     )
   ),
   rest.post("/api/clients", (request, response, context) => {
-    if (!request.body) {
+    if (request.body === undefined) {
       return;
     }
 

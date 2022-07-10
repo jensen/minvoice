@@ -14,25 +14,27 @@ export default function useFetch<ResourceType>(
   const { get, set, status } = useCache<ResourceType>(key);
   const data = get() as ResourceType;
 
+  const currentStatus = status.current;
+
   useEffect(() => {
-    if (data !== null || status.current[key] !== undefined) return;
+    if (data !== null || currentStatus[key] !== undefined) return;
 
     let ignore = false;
 
-    status.current[key] = "caching";
+    currentStatus[key] = "caching";
 
     request().then((data: ResourceType) => {
       if (ignore === false) {
         set(data);
-        status.current[key] = "cached";
+        currentStatus[key] = "cached";
       }
     });
 
     return () => {
       ignore = true;
-      status.current[key] = undefined;
+      currentStatus[key] = undefined;
     };
-  }, [request, data, set, key, status]);
+  }, [request, data, set, key, currentStatus]);
 
   return {
     loading: data === null,
