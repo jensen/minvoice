@@ -75,7 +75,11 @@ export default function DaySelector(props: IDaySelectorProps) {
 
   return (
     <div className="day-selector__container">
-      <button className="day-selector__previous" onClick={props.onPrevious}>
+      <button
+        className="day-selector__previous"
+        onClick={props.onPrevious}
+        aria-label="Previous Day"
+      >
         <ArrowLeft />
       </button>
       <div className="day-selector__week">
@@ -93,7 +97,11 @@ export default function DaySelector(props: IDaySelectorProps) {
           />
         ))}
       </div>
-      <button className="day-selector__next" onClick={props.onNext}>
+      <button
+        className="day-selector__next"
+        onClick={props.onNext}
+        aria-label="Next Day"
+      >
         <ArrowRight />
       </button>
     </div>

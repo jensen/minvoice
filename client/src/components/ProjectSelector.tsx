@@ -26,6 +26,8 @@ const ClientItem = (props: IClientItemProps) => {
           onMouseDown={(event) => {
             props.onSelect(project.id);
           }}
+          aria-selected={project.id === props.selected}
+          role="option"
         >
           [{project.code}] {project.name}
         </h3>
@@ -54,9 +56,16 @@ export default function ProjectSelector(props: IProjectSelectorProps) {
   );
 
   return (
-    <div className="project-selector__container">
+    <div
+      className="project-selector__container"
+      aria-expanded={open}
+      role="combobox"
+      aria-haspopup="listbox"
+    >
       <button
         type="button"
+        role="button"
+        aria-haspopup={true}
         className="project-selector__button"
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
@@ -77,6 +86,7 @@ export default function ProjectSelector(props: IProjectSelectorProps) {
         className={cx("project-selector__list", {
           "project-selector__list--open": open,
         })}
+        role="listbox"
       >
         {clients
           .filter((client) => client.projects.length > 0)

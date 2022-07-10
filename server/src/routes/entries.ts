@@ -2,7 +2,7 @@ import type { PrismaClient } from "@prisma/client";
 import type { Request, Response } from "express";
 import { Router } from "express";
 
-const parseDuration = (input: string) => {
+export const parseDuration = (input: string) => {
   const [hours, minutes] = input.split(":");
 
   return Number(hours) * 3600 + Number(minutes) * 60;

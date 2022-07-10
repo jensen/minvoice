@@ -7,7 +7,7 @@ import useStorageState from "../../hooks/useStorageState";
 import { formatWeekdayMonthDay, formatSeconds } from "../../utils/date";
 import { createEntry, updateEntry, deleteEntry } from "../../services/api";
 import { useFetchEntries } from "../../hooks/useFetch";
-import { useNotification } from "src/context/notification";
+import { useNotification } from "../../context/notification";
 import { useEntries } from "../../hooks/useSelector";
 
 import "./createEntry.css";
@@ -36,14 +36,17 @@ export default function CreateEntry(props: ICreateEntryProps) {
       }
     });
 
-  const create = (data: FormData) =>
-    createEntry(data).then((data) => {
+  const create = (data: FormData) => {
+    return createEntry(data).then((data) => {
       if (data.success === true) {
-        update((state) => [...state, data.entry]);
+        update((state) => {
+          return [...state, data.entry];
+        });
       } else {
         throw data.errors;
       }
     });
+  };
 
   const edit = (id: number, data: FormData) =>
     updateEntry(id, data).then((data) => {

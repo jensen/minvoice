@@ -1,5 +1,5 @@
 import type { Client } from "../types.server";
-import { useNotification } from "src/context/notification";
+import { useNotification } from "../context/notification";
 import Button from "../components/shared/Button";
 import { useFetchClients } from "../hooks/useFetch";
 import { createClient } from "../services/api";
@@ -11,7 +11,7 @@ interface ICreateClientProps {
 }
 
 export default function CreateClient(props: ICreateClientProps) {
-  const { update } = useFetchClients();
+  const { loading, update } = useFetchClients();
   const { addNotification } = useNotification();
 
   return (
@@ -37,9 +37,16 @@ export default function CreateClient(props: ICreateClientProps) {
     >
       <label className="label__container">
         <span className="label__content">Name</span>
-        <input className="input" name="name" />
+        <input
+          className="input"
+          name="name"
+          type="text"
+          aria-label="Client Name"
+        />
       </label>
-      <Button type="submit">Add Client</Button>
+      <Button type="submit" disabled={loading}>
+        Add Client
+      </Button>
     </form>
   );
 }

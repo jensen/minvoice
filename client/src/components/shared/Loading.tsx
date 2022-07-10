@@ -2,7 +2,7 @@ import "./loading.css";
 
 export default function Loading() {
   return (
-    <div className="loading__container">
+    <div className="loading__container" data-testid="loading-indicator">
       <svg
         width="44"
         height="44"

@@ -1,4 +1,4 @@
-import { useNotification } from "src/context/notification";
+import { useNotification } from "../context/notification";
 import Button from "../components/shared/Button";
 import { useFetchProjects, useFetchClients } from "../hooks/useFetch";
 import { createProject } from "../services/api";
@@ -10,9 +10,12 @@ interface ICreateProjectProps {
 }
 
 export default function CreateProject(props: ICreateProjectProps) {
-  const { update: updateProjects } = useFetchProjects();
-  const { update: updateClients } = useFetchClients();
+  const { loading: loadingProjects, update: updateProjects } =
+    useFetchProjects();
+  const { loading: loadingClients, update: updateClients } = useFetchClients();
   const { addNotification } = useNotification();
+
+  const loading = loadingProjects || loadingClients;
 
   return (
     <form
@@ -46,11 +49,23 @@ export default function CreateProject(props: ICreateProjectProps) {
     >
       <label className="label__container">
         <span className="label__content">Code</span>
-        <input className="input" type="text" id="code" name="code" />
+        <input
+          className="input"
+          type="text"
+          id="code"
+          name="code"
+          aria-label="Project Code"
+        />
       </label>
       <label className="label__container">
         <span className="label__content">Name</span>
-        <input className="input" type="text" id="name" name="name" />
+        <input
+          className="input"
+          type="text"
+          id="name"
+          name="name"
+          aria-label="Project Name"
+        />
       </label>
       <input
         className="input"
@@ -58,7 +73,9 @@ export default function CreateProject(props: ICreateProjectProps) {
         name="clientId"
         value={props.clientId ?? 0}
       />
-      <Button type="submit">Add Project</Button>
+      <Button type="submit" disabled={loading}>
+        Add Project
+      </Button>
     </form>
   );
 }

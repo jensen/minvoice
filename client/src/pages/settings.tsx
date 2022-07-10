@@ -4,8 +4,8 @@ import Card, { CardHeader } from "../components/shared/Card";
 import Table from "../components/shared/Table";
 import CreateClient from "../components/CreateClient";
 import CreateProject from "../components/CreateProject";
-import ClientSelector from "src/components/ClientSelector";
-import useStorageState from "src/hooks/useStorageState";
+import ClientSelector from "../components/ClientSelector";
+import useStorageState from "../hooks/useStorageState";
 
 export default function Settings() {
   const clients = useClients();
@@ -29,7 +29,9 @@ export default function Settings() {
         <ClientSelector
           clients={clients}
           value={selectedClientId}
-          onChange={setSelectedClientId}
+          onChange={(id) => {
+            setSelectedClientId(id);
+          }}
         />
       </Card>
       <Card padding={false}>

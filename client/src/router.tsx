@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import {
   BrowserRouter,
   Routes,
@@ -18,9 +18,7 @@ const Invoices = React.lazy(() => import("./pages/invoices"));
 const Reports = React.lazy(() => import("./pages/reports"));
 const Settings = React.lazy(() => import("./pages/settings"));
 
-import useFetch from "./hooks/useFetch";
-
-import { getClients, getProjects } from "./services/api";
+import { useFetchClients, useFetchProjects } from "./hooks/useFetch";
 
 const TimePageRedirect = () => {
   const params = useParams();
@@ -37,26 +35,29 @@ const TimePageRedirect = () => {
   return <Outlet />;
 };
 
-export default function Router() {
-  useFetch("clients", getClients);
-  useFetch("projects", getProjects);
+export const ApplicationRoutes = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Summary />} />
+        <Route path="time" element={<TimePageRedirect />}>
+          <Route path=":scale/:year/:month/:day/*" element={<Time />}>
+            <Route path="new" element={<CreateEntry />} />
+            <Route path="edit/:id" element={<CreateEntry />} />
+          </Route>
+        </Route>
+        <Route path="invoices" element={<Invoices />} />
+        <Route path="reports" element={<Reports />} />
+        <Route path="settings" element={<Settings />} />
+      </Route>
+    </Routes>
+  );
+};
 
+export default function Router() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Summary />} />
-          <Route path="time" element={<TimePageRedirect />}>
-            <Route path=":scale/:year/:month/:day/*" element={<Time />}>
-              <Route path="new" element={<CreateEntry />} />
-              <Route path="edit/:id" element={<CreateEntry />} />
-            </Route>
-          </Route>
-          <Route path="invoices" element={<Invoices />} />
-          <Route path="reports" element={<Reports />} />
-          <Route path="settings" element={<Settings />} />
-        </Route>
-      </Routes>
+      <ApplicationRoutes />
     </BrowserRouter>
   );
 }
