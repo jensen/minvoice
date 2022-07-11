@@ -31,6 +31,10 @@ export default function (prisma: PrismaClient) {
       return errors;
     }, []);
 
+    if (request.body.name.length < 3) {
+      errors.push("Client name must be at least 3 characters");
+    }
+
     if (errors.length > 0) {
       return response.json({
         success: false,
@@ -58,7 +62,7 @@ export default function (prisma: PrismaClient) {
         },
       });
     } catch (error: unknown) {
-      return errorHandler(error as Error);
+      return errorHandler(error as Error, response);
     }
   });
 

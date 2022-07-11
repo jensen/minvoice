@@ -1,13 +1,14 @@
-import { response } from "express";
+import type { Response } from "express";
 import { Prisma } from "@prisma/client";
 
-export const errorHandler = (error: Error) => {
+export const errorHandler = (error: Error, response: Response) => {
   if (error instanceof Prisma.PrismaClientKnownRequestError) {
-    if (error.code === "P2002") {
+    if (error.code === "P2002" && error.meta) {
       return response.json({
         success: false,
-        error:
-          "There is a unique constraint violation, a client cannot be created with this name",
+        errors: (error.meta.target as string[]).map(
+          (name) => `The '${name}' must be unique`
+        ),
       });
     }
   }

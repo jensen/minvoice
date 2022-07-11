@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -12,7 +9,7 @@ datasource db {
 
 model Client {
   id       Int       @id @default(autoincrement())
-  name     String
+  name     String    @unique(map: "clients_name_uindex")
   projects Project[]
 
   @@map("clients")
@@ -20,10 +17,10 @@ model Client {
 
 model Project {
   id       Int     @id @default(autoincrement())
-  code     String
-  name     String
+  code     String  @unique(map: "projects_code_uindex")
+  name     String  @unique(map: "projects_name_uindex")
   clientId Int
-  client   Client  @relation(fields: [clientId], references: [id])
+  client   Client  @relation(fields: [clientId], references: [id], onDelete: Cascade)
   entries  Entry[]
 
   @@map("projects")
@@ -31,11 +28,11 @@ model Project {
 
 model Entry {
   id          Int      @id @default(autoincrement())
-  date        DateTime 	@db.Timestamptz(3)
+  date        DateTime @db.Timestamptz(3)
   description String
   seconds     Int
   projectId   Int
-  project     Project  @relation(fields: [projectId], references: [id])
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
 
   @@map("entries")
 }

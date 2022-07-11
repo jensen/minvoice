@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "lint": "eslint src",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook"
+    "storybook:build": "build-storybook",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "classnames": "^2.3.1",
@@ -29,6 +30,7 @@
     "@storybook/builder-vite": "^0.1.37",
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
+    "@testing-library/cypress": "^8.0.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.2.1",
@@ -42,6 +44,7 @@
     "@vitest/ui": "^0.16.0",
     "babel-loader": "^8.2.5",
     "c8": "^7.11.3",
+    "cypress": "^10.3.0",
     "eslint": "^8.18.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.6.0",

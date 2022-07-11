@@ -6,7 +6,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: ["@testing-library/jest-dom", "./test/setup.ts"],
+    setupFiles: ["./test/setup.ts"],
     coverage: {
       all: true,
       include: ["src/**/*.{ts,tsx}"],

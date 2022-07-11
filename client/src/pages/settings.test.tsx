@@ -1,12 +1,9 @@
 import {
   render,
-  renderRouter,
   screen,
-  waitForElementToBeRemoved,
   waitFor,
   userEvent,
   fireEvent,
-  cleanup,
   act,
 } from "../../test/utils";
 import Settings from "../pages/settings";

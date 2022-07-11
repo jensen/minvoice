@@ -54,6 +54,20 @@ export default function (prisma: PrismaClient) {
       []
     );
 
+    if (
+      request.body.code === "" ||
+      (request.body.code && request.body.code.length < 3)
+    ) {
+      errors.push("Project code must be at least 3 characters");
+    }
+
+    if (
+      request.body.code === "" ||
+      (request.body.name && request.body.name.length < 3)
+    ) {
+      errors.push("Project name must be at least 3 characters");
+    }
+
     if (errors.length > 0) {
       return response.json({
         success: false,
@@ -77,7 +91,7 @@ export default function (prisma: PrismaClient) {
         project,
       });
     } catch (error) {
-      return errorHandler(error as Error);
+      return errorHandler(error as Error, response);
     }
   });
 

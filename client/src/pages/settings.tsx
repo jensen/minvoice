@@ -6,6 +6,7 @@ import CreateClient from "../components/CreateClient";
 import CreateProject from "../components/CreateProject";
 import ClientSelector from "../components/ClientSelector";
 import useStorageState from "../hooks/useStorageState";
+import { useEffect } from "react";
 
 export default function Settings() {
   const clients = useClients();
@@ -13,6 +14,12 @@ export default function Settings() {
   const [selectedClientId, setSelectedClientId] = useStorageState<
     number | null
   >("clientId", null);
+
+  useEffect(() => {
+    if (selectedClientId === null && clients.length > 0) {
+      setSelectedClientId(clients[0].id);
+    }
+  }, [clients, selectedClientId, setSelectedClientId]);
 
   const projects =
     clients.find((client) => client.id === selectedClientId)?.projects || [];
