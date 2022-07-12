@@ -1,4 +1,4 @@
-describe("settings", () => {
+describe("settings page", () => {
   beforeEach(() => {
     cy.intercept("/api/clients").as("getClients");
     cy.intercept("/api/projects").as("getProjects");

@@ -1,4 +1,4 @@
-describe("empty spec", () => {
+describe("create entry modal", () => {
   beforeEach(() => {
     cy.intercept("/api/clients").as("getClients");
     cy.intercept("/api/projects").as("getProjects");
