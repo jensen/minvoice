@@ -1,5 +1,9 @@
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
-module.exports = {
+export default {
+  globals: {
+    "ts-jest": {
+      tsconfig: "tsconfig.json",
+    },
+  },
   preset: "ts-jest",
   testEnvironment: "jsdom",
   moduleNameMapper: {

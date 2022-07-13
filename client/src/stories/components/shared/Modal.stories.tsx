@@ -10,4 +10,6 @@ export default {
   },
 } as ComponentMeta<typeof Modal>;
 
-export const Default = (args) => <Modal>Content</Modal>;
+export const Default: ComponentStory<typeof Modal> = (args) => (
+  <Modal {...args}>Content</Modal>
+);

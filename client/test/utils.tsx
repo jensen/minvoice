@@ -12,7 +12,7 @@ const Wrapper = ({ children }: React.PropsWithChildren) => {
   );
 };
 
-export const renderRouter = (path: string = "/", options?: any) => {
+export const renderRouter = (path = "/", options?: any) => {
   return render(
     <MemoryRouter initialEntries={[path]}>
       <ApplicationRoutes />
@@ -24,7 +24,7 @@ export const renderRouter = (path: string = "/", options?: any) => {
   );
 };
 
-const customRender = (ui: any, options?: any) => {
+const customRender = (ui: React.ReactNode, options?: any) => {
   return render(<CacheProvider>{ui}</CacheProvider>, options);
 };
 

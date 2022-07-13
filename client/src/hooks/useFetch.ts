@@ -1,5 +1,5 @@
 import type { Project, Client, Entry } from "../types.server";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { getEntries, getClients, getProjects } from "../services/api";
 import { useCache } from "../context/cache";
 
@@ -45,16 +45,10 @@ export default function useFetch<ResourceType>(
   };
 }
 
-type Fetchable<T> = () => {
-  loading: boolean;
-  data: T;
-  update: (cb: (state: T) => T) => void;
-};
-
-export const useFetchProjects: Fetchable<Project[]> = () =>
+export const useFetchProjects = () =>
   useFetch<Project[]>("projects", getProjects);
-export const useFetchClients: Fetchable<ClientWithProjects[]> = () =>
+export const useFetchClients = () =>
   useFetch<ClientWithProjects[]>("clients", getClients);
-export const useFetchEntries: Fetchable<Entry[]> = () => {
+export const useFetchEntries = () => {
   return useFetch<Entry[]>("entries", getEntries);
 };

@@ -18,11 +18,17 @@ export const useClients = () => {
   }));
 };
 
-export const useEntries = ({
-  filter,
-}: {
-  filter?: { year: number; month: number; day: number };
-} = {}) => {
+interface Filter {
+  year: number;
+  month: number;
+  day: number;
+}
+
+interface UseEntries {
+  filter?: Filter;
+}
+
+export const useEntries = (args?: UseEntries) => {
   const entries = useFetchEntries().data;
   const clients = useFetchClients().data;
   const projects = useFetchProjects().data;
@@ -36,13 +42,13 @@ export const useEntries = ({
 
   return entries
     .filter((entry) => {
-      if (filter) {
+      if (args?.filter !== undefined) {
         const date = new Date(entry.date);
 
         return (
-          date.getFullYear() === filter.year &&
-          date.getMonth() === filter.month - 1 &&
-          date.getDate() === filter.day
+          date.getFullYear() === args.filter.year &&
+          date.getMonth() === args.filter.month - 1 &&
+          date.getDate() === args.filter.day
         );
       }
 
