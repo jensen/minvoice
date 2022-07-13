@@ -10,7 +10,7 @@ export const useClients = () => {
     return [];
   }
 
-  const indexed = createIndex<Project>(projects);
+  const indexed = createIndex(projects);
 
   return clients.map((client) => ({
     ...client,
@@ -37,8 +37,8 @@ export const useEntries = (args?: UseEntries) => {
     return [];
   }
 
-  const projectIndex = createIndex<Project>(projects);
-  const clientIndex = createIndex<Client>(clients);
+  const projectIndex = createIndex(projects);
+  const clientIndex = createIndex(clients);
 
   return entries
     .filter((entry) => {
