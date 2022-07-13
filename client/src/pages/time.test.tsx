@@ -1,14 +1,6 @@
 import { renderRouter, screen, waitFor, fireEvent } from "../../test/utils";
 
 describe("Time Page", () => {
-  it("should create an entry with valid input", async () => {
-    renderRouter("/time");
-
-    await waitFor(() => {
-      expect(screen.getByText(/new entry/i)).toBeInTheDocument();
-    });
-  });
-
   it("should navigate to the selected day", async () => {
     renderRouter("/time/day/2022/6/2");
 
