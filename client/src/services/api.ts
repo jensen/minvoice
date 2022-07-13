@@ -1,3 +1,9 @@
+import type { Project, Client, Entry } from "../../src/types.server";
+
+interface ClientWithProjects extends Client {
+  projects: number[];
+}
+
 const post = (url: string, data: FormData) =>
   fetch(url, {
     method: "post",
@@ -21,7 +27,7 @@ export const getEntries = async () => {
   const response = await fetch("/api/entries");
   const json = await response.json();
 
-  return json.entries;
+  return json.entries as Entry[];
 };
 
 export const createEntry = async (data: FormData) => {
@@ -40,7 +46,7 @@ export const getClients = async () => {
   const response = await fetch("/api/clients");
   const json = await response.json();
 
-  return json.clients;
+  return json.clients as ClientWithProjects[];
 };
 
 export const createClient = async (data: FormData) => {
@@ -51,7 +57,7 @@ export const getProjects = async () => {
   const response = await fetch("/api/projects");
   const json = await response.json();
 
-  return json.projects;
+  return json.projects as Project[];
 };
 
 export const createProject = async (data: FormData) => {

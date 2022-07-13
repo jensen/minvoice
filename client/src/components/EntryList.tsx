@@ -1,4 +1,4 @@
-import type { Entry, Project, Client } from "src/types.server";
+import type { Entry, Project, Client } from "../types.server";
 import { Link } from "react-router-dom";
 
 import { formatSeconds } from "../utils/date";

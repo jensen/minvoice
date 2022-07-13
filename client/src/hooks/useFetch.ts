@@ -1,11 +1,6 @@
-import type { Project, Client, Entry } from "../types.server";
 import { useEffect } from "react";
 import { getEntries, getClients, getProjects } from "../services/api";
 import { useCache } from "../context/cache";
-
-interface ClientWithProjects extends Client {
-  projects: number[];
-}
 
 export default function useFetch<ResourceType>(
   key: string,
@@ -23,7 +18,7 @@ export default function useFetch<ResourceType>(
 
     currentStatus[key] = "caching";
 
-    request().then((data: ResourceType) => {
+    request().then((data) => {
       if (ignore === false) {
         set(data);
         currentStatus[key] = "cached";
@@ -45,10 +40,8 @@ export default function useFetch<ResourceType>(
   };
 }
 
-export const useFetchProjects = () =>
-  useFetch<Project[]>("projects", getProjects);
-export const useFetchClients = () =>
-  useFetch<ClientWithProjects[]>("clients", getClients);
+export const useFetchProjects = () => useFetch("projects", getProjects);
+export const useFetchClients = () => useFetch("clients", getClients);
 export const useFetchEntries = () => {
-  return useFetch<Entry[]>("entries", getEntries);
+  return useFetch("entries", getEntries);
 };
