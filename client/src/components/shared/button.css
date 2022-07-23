@@ -17,10 +17,6 @@
   background-color: var(--primary-highlight);
   color: var(--color-white);
 
-  & svg {
-    fill: var(--color-white);
-  }
-
   &:hover {
     background-color: var(--primary-highlight--darker);
   }
@@ -29,10 +25,6 @@
 .button--secondary {
   border: 1px solid var(--primary-highlight);
   color: var(--primary-highlight);
-
-  & svg {
-    fill: var(--primary-highlight);
-  }
 
   &:hover {
     border-color: var(--primary-highlight--lighter);
@@ -44,10 +36,6 @@
 .button--danger {
   border: 1px solid var(--danger);
   color: var(--danger);
-
-  & svg {
-    fill: var(--danger);
-  }
 
   &:hover {
     border-color: var(--danger--lighter);

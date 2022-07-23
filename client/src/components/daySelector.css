@@ -6,10 +6,7 @@
 .day-selector__next {
   background-color: var(--primary-highlight);
   padding: 0 0.5rem;
-
-  & svg {
-    fill: var(--color-white);
-  }
+  color: var(--color-white);
 
   &:hover {
     background-color: var(--primary-highlight--darker);

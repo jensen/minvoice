@@ -10,10 +10,6 @@
 
   &:hover {
     color: var(--primary-unhighlight--darker);
-
-    & .navigation__icon > svg {
-      fill: var(--primary-unhighlight--darker);
-    }
   }
 }
 
@@ -22,10 +18,6 @@
 
   & .navigation__tab {
     background-color: var(--primary-highlight);
-  }
-
-  & .navigation__icon > svg {
-    fill: var(--primary-highlight);
   }
 
   &:hover {
@@ -50,10 +42,6 @@
   align-items: center;
   margin-right: 1rem;
   width: 24px;
-
-  & > svg {
-    fill: var(--primary-unhighlight);
-  }
 }
 
 .navigation__label {
