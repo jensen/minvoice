@@ -2,7 +2,7 @@ import { rest } from "msw";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { parameters } from "../../../.storybook/preview";
 
-import EntryListQuery from "../../queries/EntryListQuery";
+import EntryListQuery from "../../components/queries/EntryListQuery";
 
 export default {
   title: "queries/EntryListQuery",

@@ -8,7 +8,7 @@ import {
   useParams,
 } from "react-router-dom";
 
-import Layout from "./components/Layout";
+import Main from "./components/layout/Main";
 
 import CreateEntry from "./pages/modals/CreateEntry";
 
@@ -17,8 +17,6 @@ const Time = React.lazy(() => import("./pages/time"));
 const Invoices = React.lazy(() => import("./pages/invoices"));
 const Reports = React.lazy(() => import("./pages/reports"));
 const Settings = React.lazy(() => import("./pages/settings"));
-
-import { useFetchClients, useFetchProjects } from "./hooks/useFetch";
 
 const TimePageRedirect = () => {
   const params = useParams();
@@ -38,7 +36,7 @@ const TimePageRedirect = () => {
 export const ApplicationRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<Main />}>
         <Route index element={<Summary />} />
         <Route path="time" element={<TimePageRedirect />}>
           <Route path=":scale/:year/:month/:day/*" element={<Time />}>

@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { BrowserRouter as Router } from "react-router-dom";
 
-import Navigation from "../../components/Navigation";
+import Navigation from "../../components/layout/Navigation";
 
 export default {
   title: "components/Navigation",

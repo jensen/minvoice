@@ -1,5 +1,5 @@
-import { useEntries } from "../hooks/useSelector";
-import EntryList, { EmptyEntries } from "../components/EntryList";
+import { useEntries } from "../../hooks/useSelector";
+import EntryList, { EmptyEntries } from "../EntryList";
 
 interface IEntryListQueryProps {
   year: number;

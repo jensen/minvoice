@@ -3,8 +3,8 @@ import useRouterDate from "../hooks/useRouterDate";
 import Card from "../components/shared/Card";
 import { Plus } from "../components/shared/Icons";
 import Button from "../components/shared/Button";
-import DaySelectorQuery from "../queries/DaySelectorQuery";
-import EntryListQuery from "../queries/EntryListQuery";
+import DaySelectorQuery from "../components/queries/DaySelectorQuery";
+import EntryListQuery from "../components/queries/EntryListQuery";
 
 interface ICurrentDateProps {
   day: number;

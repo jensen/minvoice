@@ -1,5 +1,5 @@
-import { useEntries } from "../hooks/useSelector";
-import DaySelector, { IDaySelectorProps } from "../components/DaySelector";
+import { useEntries } from "../../hooks/useSelector";
+import DaySelector, { IDaySelectorProps } from "../DaySelector";
 
 interface IDaySelectorQueryProps extends Omit<IDaySelectorProps, "entries"> {}
 

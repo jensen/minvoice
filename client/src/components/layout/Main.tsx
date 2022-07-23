@@ -1,13 +1,13 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import NotificationProvider from "../context/notification";
+import NotificationProvider from "../../context/notification";
 
 import Navigation from "./Navigation";
 import Header from "./Header";
 
-import Loading from "./shared/Loading";
+import Loading from "../shared/Loading";
 
-export default function Layout() {
+export default function Main() {
   return (
     <NotificationProvider>
       <main className="layout__container">

@@ -1,13 +1,13 @@
 import { useMatch, Link } from "react-router-dom";
 import cx from "classnames";
-import type { IIcon } from "../components/shared/Icons";
+import type { IIcon } from "../../components/shared/Icons";
 import {
   Clock,
   FileInvoiceDollar,
   FileChartColumn,
   Table,
   Gear,
-} from "../components/shared/Icons";
+} from "../../components/shared/Icons";
 
 import "./navigation.css";
 

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import DaySelectorQuery from "../../queries/DaySelectorQuery";
+import DaySelectorQuery from "../../components/queries/DaySelectorQuery";
 
 export default {
   title: "queries/DaySelectorQuery",
