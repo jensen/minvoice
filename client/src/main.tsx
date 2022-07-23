@@ -3,7 +3,6 @@ import * as ReactDOM from "react-dom/client";
 import Router from "./router";
 
 import CacheProvider from "./context/cache";
-import NotificationProvider from "./context/notification";
 
 import "./styles/index.css";
 
@@ -15,9 +14,7 @@ export const load = (element: HTMLDivElement | null) => {
   ReactDOM.createRoot(element).render(
     <React.StrictMode>
       <CacheProvider>
-        <NotificationProvider>
-          <Router />
-        </NotificationProvider>
+        <Router />
       </CacheProvider>
     </React.StrictMode>
   );
