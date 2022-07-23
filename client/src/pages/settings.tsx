@@ -46,7 +46,7 @@ export default function Settings() {
           <CardHeader>Projects</CardHeader>
           <CreateProject clientId={selectedClientId} />
         </div>
-        <Table<Project>
+        <Table
           columns={[
             { label: "Code", accessor: "code", width: "20%" },
             { label: "Name", accessor: "name" },
