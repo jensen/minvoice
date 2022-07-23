@@ -8,7 +8,7 @@ import {
   useParams,
 } from "react-router-dom";
 
-import Main from "./components/layout/Main";
+import Shell from "./components/layout/Shell";
 
 import CreateEntry from "./pages/modals/CreateEntry";
 
@@ -36,7 +36,7 @@ const TimePageRedirect = () => {
 export const ApplicationRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Main />}>
+      <Route path="/" element={<Shell />}>
         <Route index element={<Summary />} />
         <Route path="time" element={<TimePageRedirect />}>
           <Route path=":scale/:year/:month/:day/*" element={<Time />}>
